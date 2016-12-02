@@ -1,0 +1,100 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    static class Coins{
+
+        int quarterValue;
+        int dimeValue;
+        int nickelValue;
+        int pennyValue;
+        //Constructor that passes the various values of Coins which is transferred to the variables above. Parameters Below hold the value of the money (qvalue, nvalue, etc)
+        Coins(int qvalue, int dvalue, int nvalue, int pvalue){
+            quarterValue = qvalue;
+            dimeValue = dvalue;
+            nickelValue = nvalue;
+            pennyValue = pvalue;
+
+
+        }
+
+        public static int console_conversation() {
+            System.out.println("Welcome to the Change Program. How much change would you like to print out");
+            System.out.println("Please Input the amount of change you would like to have sorted"); // prints out console commands
+            int coinvalue;
+            Scanner coininput = new Scanner(System.in);
+            coinvalue = coininput.nextInt(); //input for the original coin value
+
+            return coinvalue;
+
+        }
+
+
+        }
+    public static int calculator(int coinvalue , int qvalue, int dvalue, int nvalue, int pvalue){
+
+        int quartervalue= 25; //values that store the value of the coin
+        int dimevalue = 10;
+        int nickelvalue = 5;
+        int pennyvalue;
+        int dollarvalue = 100;
+        System.out.println("You Have Inputted " + coinvalue + " cents");
+
+        if (coinvalue <= 100) {
+            qvalue = coinvalue / qvalue;
+            System.out.println(qvalue + " quarters");
+            if (qvalue <= 4){
+                dimevalue = (coinvalue - (quartervalue * qvalue))/ dvalue;
+                System.out.println(dimevalue + " dimes");
+            }
+            if (dimevalue <= 10)
+                nickelvalue = (coinvalue - (quartervalue * qvalue) - (dvalue * dimevalue)) / nvalue;
+            System.out.println(nickelvalue + " nickles");
+            if(nickelvalue <=20){
+                pennyvalue = (coinvalue - (quartervalue * qvalue) - (dvalue * dimevalue) - (nvalue * nickelvalue)) / pvalue;
+                System.out.println(pennyvalue + " pennies");
+            }
+        }
+
+
+
+        return 0;
+    }
+
+
+
+    public static void main(String[] args) {
+
+        Coins valueOfMoney = new Coins(25, 10, 5, 1);
+        //methods to be executed
+        int coinstorage;
+        coinstorage = Coins.console_conversation(); // return value stored in coinInput
+        calculator(coinstorage,valueOfMoney.quarterValue , valueOfMoney.dimeValue , valueOfMoney.nickelValue , valueOfMoney.pennyValue);
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
